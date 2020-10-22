@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/zeropool/static/css/main.de5d707f.chunk.css",
+    "main.js": "/zeropool/static/js/main.c8796bad.chunk.js",
+    "main.js.map": "/zeropool/static/js/main.c8796bad.chunk.js.map",
+    "runtime-main.js": "/zeropool/static/js/runtime-main.e1971b33.js",
+    "runtime-main.js.map": "/zeropool/static/js/runtime-main.e1971b33.js.map",
+    "static/js/2.368324be.chunk.js": "/zeropool/static/js/2.368324be.chunk.js",
+    "static/js/2.368324be.chunk.js.map": "/zeropool/static/js/2.368324be.chunk.js.map",
+    "index.html": "/zeropool/index.html",
+    "precache-manifest.498bf308fd71c5ff5f0a77574585f4d6.js": "/zeropool/precache-manifest.498bf308fd71c5ff5f0a77574585f4d6.js",
+    "service-worker.js": "/zeropool/service-worker.js",
+    "static/css/main.de5d707f.chunk.css.map": "/zeropool/static/css/main.de5d707f.chunk.css.map",
+    "static/js/2.368324be.chunk.js.LICENSE.txt": "/zeropool/static/js/2.368324be.chunk.js.LICENSE.txt",
+    "static/media/guy-fawkes-thanks.png": "/zeropool/static/media/guy-fawkes-thanks.0609f8d3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e1971b33.js",
+    "static/js/2.368324be.chunk.js",
+    "static/css/main.de5d707f.chunk.css",
+    "static/js/main.c8796bad.chunk.js"
+  ]
+}
