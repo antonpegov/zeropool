@@ -148,7 +148,7 @@ const transfer = (account: number, to: string, amount: number, token: Token) => 
   )
 }
 
-const isPrivateAddress = (address: string, token: TokenSymbol) => {
+export const isPrivateAddress = (address: string, token: TokenSymbol) => {
   if (!hdWallet) {
     throw Error('API not available!')
   }
@@ -163,7 +163,7 @@ const convertValues = (coin: Coin) => (transactions: Transaction[]) =>
     timestamp: fixTimestamp(transaction.timestamp),
   }))
 
-const api = {
+export const api = {
   getAllBalances,
   getWalletBalance,
   getNetworkFee,
@@ -173,5 +173,3 @@ const api = {
   transfer,
   isPrivateAddress,
 }
-
-export default api
