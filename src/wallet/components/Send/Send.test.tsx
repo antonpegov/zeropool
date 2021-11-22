@@ -161,7 +161,54 @@ describe('Send', () => {
     });
 
     describe('Button', () => {
+      it('button disabled if inputs are empty', async () => {
+        const { getByTestId } = render(component)
+        const addressInput = getByTestId('Send-AddressInput') as HTMLInputElement
+        const amountInput = getByTestId('Send-AmountInput') as HTMLInputElement
 
+        await act(async () => {
+          await fireEvent.input(addressInput, { target: {value: ''}})
+          await fireEvent.input(amountInput, { target: {value: ''}})
+        })
+
+        expect(getByTestId('Send-NextButton')).toBe(true)
+      });
+
+      it('button disabled if first input empty', () => {
+        const { getByTestId } = render(component)
+        const addressInput = getByTestId('Send-AddressInput') as HTMLInputElement
+        const amountInput = getByTestId('Send-AmountInput') as HTMLInputElement
+
+        await act(async () => {
+          await fireEvent.input(addressInput, { target: {value: ''}})
+          await fireEvent.input(amountInput, { target: {value: '123'}})
+        })
+      });
+
+      it('button disabled second input empty', () => {
+        const { getByTestId } = render(component)
+        const addressInput = getByTestId('Send-AddressInput') as HTMLInputElement
+        const amountInput = getByTestId('Send-AmountInput') as HTMLInputElement
+
+        await act(async () => {
+          await fireEvent.input(addressInput, { target: {value: '123'}})
+          await fireEvent.input(amountInput, { target: {value: ''}})
+        })
+      });
+
+
+      it('button enabled if all inputs are valid', () => {
+        const { getByTestId } = render(component)
+        const addressInput = getByTestId('Send-AddressInput') as HTMLInputElement
+        const amountInput = getByTestId('Send-AmountInput') as HTMLInputElement
+
+        addressValid = true
+
+        await act(async () => {
+          await fireEvent.input(addressInput, { target: {value: '123'}})
+          await fireEvent.input(amountInput, { target: {value: '123'}})
+        })
+      });
       
     });
     
