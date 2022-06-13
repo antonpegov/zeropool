@@ -20,15 +20,49 @@ module.exports = function override(config, env) {
     'stream': require.resolve('stream-browserify'),
   }
 
-  config.mode = 'development'
-  config.optimization.minimize = false
-  config.optimization.minimizer = []
-
-
   config.resolve.alias = {
     ...config.resolve.alias,
     process: 'process/browser.js',
   }
+
+  config.output = {
+    ...config.output,
+    // chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    chunkFormat: 'module',
+  }
+
+  
+  config.optimization = {
+    ...config.optimization,
+    minimizer: config.optimization.minimizer.map(minimizer => {
+      if (minimizer.options.minimizer.options) {
+        minimizer.options.minimizer.options.keep_classnames = true
+        minimizer.options.minimizer.options.keep_fnames = true
+        minimizer.options.minimizer.options.compress = {
+          ...minimizer.options.minimizer.options.compress,
+          ecma: 8
+        }
+        minimizer.options.minimizer.options.output = {
+          ...minimizer.options.minimizer.options.output,
+          ecma: 8
+        }
+      }
+
+      return minimizer
+    }),
+  }
+
+  // config.output = {
+  //   ...config.output,
+  //   library: {
+  //     type: 'module',
+  //   }
+  // }
+
+  // config.experiments = {
+  //   ...config.experiments,
+  //   outputModule: true,
+  // }
   
   config.module.rules = [
     ...config.module.rules,
@@ -54,6 +88,12 @@ module.exports = function override(config, env) {
     }),
   ]) 
 
-  config.ignoreWarnings = [/Failed to parse source map/]
+  config.plugins[0].version = 6
+  config.ignoreWarnings = [
+    {
+      module: /source-map-loader/,
+    },
+  ]
+  console.log(JSON.stringify(config))
   return config
 }
