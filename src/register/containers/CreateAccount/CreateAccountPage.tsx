@@ -38,29 +38,29 @@ export const CreateAccountPage: React.FC<CreateAccountProps> = () => {
   const stage = useAppSelector(selectStage)
   const showSteps = useAppSelector(selectShowSteps)
   const dispatch = useAppDispatch()
+  const stepBack = () => dispatch(rsa.stepBack())
 
   useEffect(() => {
     if (seedInWallet) {
       navigate('/wallet')
-      // navigate(0)
     }
   })
 
   const components = () => {
     switch (stage) {
       case RegisterStage.STEP1:
-        return <StepOne onGenerate={() => dispatch(rsa.generateSeed())} />
+        return <StepOne onGenerate={() => dispatch(rsa.generateSeed())} onBack={stepBack}/>
       case RegisterStage.STEP2:
-        return <StepTwo seed={seed} onSubmit={() => dispatch(rsa.submitSeed())} />
+        return <StepTwo seed={seed} onSubmit={() => dispatch(rsa.submitSeed())} onBack={stepBack}/>
       case RegisterStage.STEP3:
-        return <StepThree seed={seed} onConfirm={() => dispatch(rsa.confirmSeed())} />
+        return <StepThree seed={seed} onConfirm={() => dispatch(rsa.confirmSeed())} onBack={stepBack}/>
       case RegisterStage.STEP4:
         return (
           <StepFour
+            onBack={stepBack}
             onRegister={({ password }) => {
               dispatch(rsa.register(password))
               navigate('/wallet')
-              // navigate(0)
             }}
           />
         )
@@ -96,7 +96,7 @@ export const CreateAccountPage: React.FC<CreateAccountProps> = () => {
   return (
     <div className={css()} data-testid={test()}>
       {stage && showSteps ? (
-        <StepHeader step={stage} total={4} onBack={() => dispatch(rsa.stepBack())} />
+        <StepHeader step={stage} total={4} onBack={stepBack} />
       ) : null}
 
       {components()}
