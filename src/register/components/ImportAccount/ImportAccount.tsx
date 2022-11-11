@@ -56,6 +56,7 @@ export const ImportAccount: React.FC<ImportAccountProps> = ({ onBack, onImport }
         <form
           onSubmit={handleSubmit((data: FormData) => onImport({ password: data.password, seed: strToArray(watchSeed), accountId: data.accountId }))}
           className={bem('Form')}
+          autoComplete="off"
         >
           {NETWORK === 'near' ? (
             <FormControl className={bem('FormControl')} error={!!errors.accountId}>
