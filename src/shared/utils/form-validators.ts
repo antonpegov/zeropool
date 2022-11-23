@@ -4,6 +4,22 @@ export const accountIdValidator = {
   required: false,
 }
 
+export const accountIdValidatorNEAR = {
+  required: 'Required',
+  pattern: {
+    value: /^(\w|(?<!\.)\.)+(?<!\.)\.(testnet|near)|[a-fA-F0-9]{64}$/,
+    message: 'Invalid Near account id'
+  },
+  minLength:{
+    value: 4,
+    message: 'Near account id is too short'
+  },
+  maxLength:{
+    value: 64,
+    message: 'Near account id is too long'
+  }
+}
+
 export const passwordValidator = {
   required: 'Required',
   pattern: {
@@ -25,3 +41,14 @@ export const confirmValidator = (getValues: () => any) => ({
   required: 'Required',
   validate: (value: string) => value === getValues().password,
 })
+
+export const chooseAccountIdValidator = (newtork: string) => {
+  switch (newtork) {
+    case 'near':
+      return accountIdValidatorNEAR
+    case 'ethereum':
+      return accountIdValidator
+    default:
+      return accountIdValidator
+  }
+}

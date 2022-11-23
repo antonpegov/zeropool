@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import { Close, Visibility, VisibilityOff, CopyAll } from '@mui/icons-material'
 import { Button, FormControl, FormHelperText, IconButton, Input, InputAdornment, InputLabel } from '@mui/material'
 
-import { accountIdValidator, confirmValidator, passwordValidator, seedValidator } from 'shared/utils/form-validators'
+import {  chooseAccountIdValidator, confirmValidator, passwordValidator, seedValidator } from 'shared/utils/form-validators'
 import { strToArray } from 'shared/utils/str-to-array'
 // tslint:enable: max-line-length prettier
 
@@ -37,7 +37,7 @@ export const ImportAccount: React.FC<ImportAccountProps> = ({ onBack, onImport }
   const [showPassword, setShowPassword] = useState(false)
 
   const { handleSubmit, register, control, formState: { errors }, getValues, setValue, watch } = useForm<FormData>()
-  const { onChange: onChangeAccountId, onBlur: onBlurAccountId, name: nameAccountId, ref: refAccountId } = register('accountId', accountIdValidator)
+  const { onChange: onChangeAccountId, onBlur: onBlurAccountId, name: nameAccountId, ref: refAccountId } = register('accountId', chooseAccountIdValidator(NETWORK))
   const { onChange: onChangeSeed, onBlur: onBlurSeed, name: nameSeed, ref: refSeed } = register('seed', seedValidator)
   const { onChange: onChangePassword, onBlur: onBlurPassword, name: namePassword, ref: refPassword } = register('password', passwordValidator)
   const { onChange: onChangeConfirm, onBlur: onBlurConfirm, name: nameConfirm, ref: refConfirm } = register('confirm', confirmValidator(getValues))
@@ -106,9 +106,14 @@ export const ImportAccount: React.FC<ImportAccountProps> = ({ onBack, onImport }
                   </InputAdornment>
                 }
               />
+
+              {errors.accountId ? (
+                <FormHelperText data-testid={bem('AccountError')}>
+                  {errors.accountId.message}
+                </FormHelperText>
+              ) : null}
             </FormControl>
-              ) : null 
-          }
+          ) : null}
 
           <FormControl className={bem('FormControl')} error={!!errors.seed}>
             <InputLabel color="secondary" className={bem('FormControlLabel')} htmlFor="seed">

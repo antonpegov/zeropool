@@ -29,7 +29,6 @@ import {
 } from 'zeropool-support-js'
 
 import {
-  HistoryTransactionType,
   init as initZPClient,
   ZeropoolClient,
 } from 'zeropool-client-js'
