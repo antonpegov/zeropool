@@ -10205,10 +10205,10 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.8:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
   integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
-fontsource-exo-2@^3.0.5:
-  version "3.1.6"
-  resolved "https://registry.yarnpkg.com/fontsource-exo-2/-/fontsource-exo-2-3.1.6.tgz#b0c09621c42814a3717ee65f710fd9761426929d"
-  integrity sha512-d2AHK+I/6FuKwgCmSTh1u+bPw0RScgSIZXtsoAC7NiwLPqwhKA8D/onu2+B1tAeY2JA0jfrvfLy8aQPUOBQ9gA==
+fontsource-exo-2@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-exo-2/-/fontsource-exo-2-4.0.0.tgz#4a53a61da9257f6be4c60e5fc83dbb15dc1bd7f0"
+  integrity sha512-MAi+4yyrh/iCtl9VWdYatlfdwqV+Zr5TFp2syk3sNwOxF0WXFm5Ats1YASGUdpUOKAjkog1sbnPmo1nO47Es/A==
 
 for-each@^0.3.3:
   version "0.3.3"
