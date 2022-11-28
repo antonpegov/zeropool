@@ -6116,10 +6116,10 @@ axe-core@^4.4.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.4.3.tgz#11c74d23d5013c0fa5d183796729bc3482bd2f6f"
   integrity sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==
 
-axios-observable@^1.1.3:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/axios-observable/-/axios-observable-1.5.0.tgz#b0d415ca61510bcb2ae34102bcd48ae92a60d86d"
-  integrity sha512-xef5Mht9wnllqZLdiZ7xr30yNlt2JROQOVotLxyP6RsvTApgcDhTsFj5Locvpz85qQQvX8VuNMwa6F26wPNPCw==
+axios-observable@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/axios-observable/-/axios-observable-2.0.0.tgz#e98edfbce95a6fd92ac11154a9b25d09b58ee32e"
+  integrity sha512-CINOLfMLwAyf2km/nRBybF9OyWXOfRA5ftoYn2Q+Rb2w4KB/FIylk68y7rgI/na6Jen5/I8R9bt6VtDdF/zoyA==
 
 axios@^0.19.0:
   version "0.19.2"
