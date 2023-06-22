@@ -38,7 +38,7 @@
     "bip39-light": "^v1.0.7",
     "crypto-js": "^4.1.1",
     "execa": "^6.1.0",
-    "fontsource-exo-2": "^3.0.5",
+    "fontsource-exo-2": "^4.0.0",
     "history": "^4.10.1",
     "jssha": "^3.2.0",
     "moment": "^2.29.1",
